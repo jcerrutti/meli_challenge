@@ -5,7 +5,7 @@ class Item {
     this.price = {
       currency: itemData.currency_id,
       amount: itemData.price,
-      decimals: 1,
+      decimals: 2,
     };
     this.picture = itemData.thumbnail;
     this.condition = itemData.condition;

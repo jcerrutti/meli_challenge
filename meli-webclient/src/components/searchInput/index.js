@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './searchInput.scss';
 import glass from '../../assets/ic_Search.png';
 import logoML from '../../assets/Logo_ML@2x.png';
-
 const ENTER_KEY = 13;
 
 export default class SearchInput extends Component {

@@ -1,0 +1,40 @@
+@import "../../styles/colors.scss";
+
+.item-grid {
+  display: grid;
+  grid-template-columns: .5fr 1fr .5fr;
+  padding: 16px 0;
+
+  img.thumbnail {
+    width: 200px;
+    height: auto;
+    border-radius: 4px;
+    margin: 0 16px 0 auto;
+  }
+
+  .price {
+    font-size: 24px;
+    margin-bottom: 32px;
+
+    .free-shipping {
+      width: 16px;
+      margin-left: 10px;
+    }
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .location {
+    font-size: 12px;
+    text-align: center;
+    margin-top: 38px;
+    color: $meli-dark-gray;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: lighten($meli-blue, 30%);
+  }
+}
