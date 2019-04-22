@@ -1,6 +1,6 @@
 # Meli Challenge
 
 ### Author
-Juan Cerrutti
+Juan Cerrutti - jicerrutti@gmail.com
 
 ## Instructions
