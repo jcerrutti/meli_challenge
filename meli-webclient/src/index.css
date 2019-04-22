@@ -12,3 +12,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+/**
+ * Reset button styles.
+ */
+button {
+  border: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}

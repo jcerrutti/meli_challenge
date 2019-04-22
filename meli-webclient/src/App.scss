@@ -1,0 +1,18 @@
+@import "./styles/colors.scss";
+
+$header-height: 72px;
+
+.App {
+  background-color: $meli-light-gray;
+}
+
+header {
+  height: $header-height;
+  background-color: $meli-yellow;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  height: calc(100vh - #{$header-height});
+}
