@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import queryString from 'query-string';
 import { getItems } from '../../api/items';
 import ItemList from '../itemList';
 import LandingMessage from '../landingMessage';
-import "./listPage.scss";
+import './listPage.scss';
 
 export default class ListPage extends Component {
   constructor(props) {
@@ -23,13 +24,22 @@ export default class ListPage extends Component {
     };
   }
 
-  componentWillReceiveProps = (props) => {
-    if (this.state.querySearch !== props.querySearch && props.querySearch !== '') {
-      this.onSearch(props.querySearch);
+  componentWillMount = () => {
+    this.getSearchQuery(this.props);
+  };
+
+  componentWillReceiveProps = props => {
+    this.getSearchQuery(props);
+  };
+
+  getSearchQuery = (props) => {
+    const { search } = queryString.parse(props.location.search);
+    if (search !== this.state.querySearch) {
+      this.onSearch(search);
     }
   };
 
-  isSearching = (querySearch) => {
+  isSearching = querySearch => {
     this.setState({
       querySearch,
       didSearch: true,
@@ -38,7 +48,7 @@ export default class ListPage extends Component {
     });
   };
 
-  searchSuccess = (results) => {
+  searchSuccess = results => {
     this.setState({
       results: results.items,
       searching: false,

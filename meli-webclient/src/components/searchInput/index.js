@@ -13,16 +13,20 @@ export default class SearchInput extends Component {
     };
   }
 
-  onType = (e) => {
+  onType = e => {
     this.setState({
       search: e.target.value,
     });
   };
 
-  onKeyUp = (key) => {
+  onKeyUp = key => {
     if (key.keyCode === ENTER_KEY) {
-      this.props.onSearch(this.state.search);
+      this.onSearch();
     }
+  };
+
+  onSearch = () => {
+    this.props.onSearch(this.state.search);
   };
 
   render() {
@@ -30,7 +34,7 @@ export default class SearchInput extends Component {
       <div className="header-search-container">
         <img className="logo" src={logoML} alt="logo_meli" />
         <input onChange={this.onType} onKeyUp={this.onKeyUp} placeholder="Nunca dejes de buscar" />
-        <button>
+        <button onClick={this.onSearch}>
           <img src={glass} alt="search-icon" />
         </button>
       </div>

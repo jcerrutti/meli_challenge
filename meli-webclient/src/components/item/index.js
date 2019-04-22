@@ -4,10 +4,10 @@ import './item.scss';
 import { navigate } from '@reach/router';
 
 export default function Item({ item }) {
-  const { title, price, picture, free_shipping, location } = item;
+  const { id, title, price, picture, free_shipping, location } = item;
 
   const goToItem = () => {
-    navigate('/sarasa');
+    navigate(`/items/${id}`);
   };
 
   return (
