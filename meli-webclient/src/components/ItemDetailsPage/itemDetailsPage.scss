@@ -1,0 +1,55 @@
+@import "../../styles/colors.scss";
+
+.item {
+  display: grid;
+  grid-template-columns: 4fr 3fr;
+  padding: 32px;
+
+  &-description {
+
+    &-picture {
+      margin-right: auto;
+      margin-left: 5rem;
+      display: block;
+      width: 26rem;
+    }
+
+    &-label {
+      font-size: 28px;
+      margin-bottom: 32px;
+    }
+
+    &-content {
+      color: $meli-dark-gray;
+      font-size: 16px;
+      text-align: justify;
+    }
+  }
+
+  &-main {
+    &-sold {
+      font-size: 14px;
+    }
+
+    &-title {
+      margin: 16px 0 32px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    &-price {
+      font-weight: 600;
+      font-size: 48px;
+      margin-bottom: 32px;
+    }
+
+    &-button {
+      font-size: 23px;
+      width: 100%;
+      padding: 1rem;
+      background-color: $meli-blue;
+      color: white;
+      border-radius: 4px;
+    }
+  }
+}

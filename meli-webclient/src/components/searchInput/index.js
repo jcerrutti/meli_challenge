@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import queryString from 'query-string';
 import './searchInput.scss';
 import glass from '../../assets/ic_Search.png';
 import logoML from '../../assets/Logo_ML@2x.png';
-const ENTER_KEY = 13;
+import { navigate } from '@reach/router';
 
 export default class SearchInput extends Component {
   constructor(props) {
@@ -13,30 +14,47 @@ export default class SearchInput extends Component {
     };
   }
 
-  onType = e => {
+  componentWillMount = () => {
+    const search = Object.values(queryString.parse(window.location.href))[0]; 
+    this.setState({
+      search: search ? search : '',
+    });
+  };
+
+  onType = (e) => {
     this.setState({
       search: e.target.value,
     });
   };
 
-  onKeyUp = key => {
-    if (key.keyCode === ENTER_KEY) {
-      this.onSearch();
-    }
-  };
-
-  onSearch = () => {
+  onSearch = (e) => {
+    e.preventDefault();
     this.props.onSearch(this.state.search);
   };
 
+  navigateRoot = () => {
+    this.setState({
+      search: '',
+    });
+    navigate('/');
+  };
+
   render() {
+    const { search } = this.state;
     return (
       <div className="header-search-container">
-        <img className="logo" src={logoML} alt="logo_meli" />
-        <input onChange={this.onType} onKeyUp={this.onKeyUp} placeholder="Nunca dejes de buscar" />
-        <button onClick={this.onSearch}>
-          <img src={glass} alt="search-icon" />
-        </button>
+        <img onClick={this.navigateRoot} className="logo" src={logoML} alt="logo_meli" />
+        <form onSubmit={this.onSearch}>
+          <input
+            required
+            value={search}
+            onChange={this.onType}
+            placeholder="Nunca dejes de buscar"
+          />
+          <button type="submit">
+            <img src={glass} alt="search-icon" />
+          </button>
+        </form>
       </div>
     );
   }
