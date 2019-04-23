@@ -1,0 +1,43 @@
+@import '../../styles/colors.scss';
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.line {
+  float: left;
+  width: 50rem;
+  height: 30px;
+  margin: 1rem; 
+  border-radius: 7px;
+  background-image: linear-gradient(
+    90deg,
+    #f4f4f4 0px,
+    darken($meli-light-gray, 10%) 10rem,
+    #f4f4f4 20rem
+  );
+  background-size: 60rem;
+  animation: shine-lines 1s infinite ease-out;
+}
+.line ~ .line {
+  background-color: white;
+}
+
+@keyframes shine-lines {
+  0% {
+    background-position: -10rem;
+  }
+  20% {
+    background-position: 10rem;
+  }
+  60% {
+      background-position: 30rem;
+  }
+  100% {
+    background-position: 50rem;
+  }
+}

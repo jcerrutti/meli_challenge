@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { getDetails } from '../../api/items';
 import LandingMessage from '../landingMessage';
 import './itemDetailsPage.scss';
+import LoadingRows from '../loadingRows/loadingRows';
 
 export default class ItemDetailsPage extends Component {
   constructor(props) {
@@ -28,7 +29,6 @@ export default class ItemDetailsPage extends Component {
     });
     try {
       const { item } = await getDetails(id);
-      debugger;
       this.setState({
         item,
         searching: false,
@@ -44,30 +44,44 @@ export default class ItemDetailsPage extends Component {
   }
 
   render() {
-    const { item, error } = this.state;
+    const { item, error, searching } = this.state;
     return (
-      <div className="content">
-        {item ? (
-          <div className="item item-list">
-            <div className="item-description">
-              <img className="item-description-picture" src={item.big_picture} alt={item.title} />
-              <p className="item-description-label">Descripción del producto</p>
-              <p className="item-description-content">{item.description}</p>
-            </div>
-            <div className="item-main">
-              <span className="item-main-sold">
-                {item.condition} - {item.sold_quantity} vendidos
-              </span>
-              <p className="item-main-title">{item.title}</p>
-              <h2 className="item-main-price">$ {item.price.amount}</h2>
-              <button className="item-main-button">Comprar</button>
-            </div>
+      <React.Fragment>
+        {!searching ? (
+          <div className="content">
+            {item ? (
+              <div className="item item-list">
+                <div className="item-description">
+                  <img
+                    className="item-description-picture"
+                    src={item.big_picture}
+                    alt={item.title}
+                  />
+                  <p className="item-description-label">
+                    Descripción del producto
+                  </p>
+                  <p className="item-description-content">{item.description}</p>
+                </div>
+                <div className="item-main">
+                  <span className="item-main-sold">
+                    {item.condition} - {item.sold_quantity} vendidos
+                  </span>
+                  <p className="item-main-title">{item.title}</p>
+                  <h2 className="item-main-price">$ {item.price.amount}</h2>
+                  <button className="item-main-button">Comprar</button>
+                </div>
+              </div>
+            ) : (
+              <LandingMessage type="error" message={this.messages.error} />
+            )}
+            {error && (
+              <LandingMessage type="error" message={this.messages.error} />
+            )}
           </div>
         ) : (
-          <LandingMessage type="error" message={this.messages.error} />
+          <LoadingRows />
         )}
-        {error && <LandingMessage type="error" message={this.messages.error} />}
-      </div>
+      </React.Fragment>
     );
   }
 }

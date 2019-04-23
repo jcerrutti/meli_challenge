@@ -4,6 +4,7 @@ import { getItems } from '../../api/items';
 import ItemList from '../itemList';
 import LandingMessage from '../landingMessage';
 import './listPage.scss';
+import LoadingRows from '../loadingRows/loadingRows';
 
 export default class ListPage extends Component {
   constructor(props) {
@@ -90,7 +91,7 @@ export default class ListPage extends Component {
                 )}
               </React.Fragment>
             ) : (
-              <React.Fragment />
+              <LoadingRows />
             )}
           </div>
         ) : (
