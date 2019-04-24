@@ -22,7 +22,7 @@ class App extends Component {
           <SearchInput onSearch={this.onSearch} />
         </header>
         <Router className="content">
-          <LandingMessage path="/" type="regular" message={this.messages.search} />
+          <LandingMessage path="/" message={this.messages.search} />
           <ListPage path="/items" />
           <ItemDetailsPage path="/items/:id" />
         </Router>

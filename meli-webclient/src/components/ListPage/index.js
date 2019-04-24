@@ -84,10 +84,10 @@ export default class ListPage extends Component {
               <React.Fragment>
                 {results.length > 0 && <ItemList path="/" items={results} />}
                 {results.length === 0 && !didSearch && (
-                  <LandingMessage type="regular" message={this.messages.search} />
+                  <LandingMessage message={this.messages.search} />
                 )}
                 {results.length === 0 && didSearch && (
-                  <LandingMessage type="regular" message={this.messages.emptyResults} />
+                  <LandingMessage message={this.messages.emptyResults} />
                 )}
               </React.Fragment>
             ) : (
@@ -96,7 +96,7 @@ export default class ListPage extends Component {
           </div>
         ) : (
           <div className="content content__error">
-            <LandingMessage type="regular" message={this.messages.error} />
+            <LandingMessage message={this.messages.error} />
           </div>
         )}
       </React.Fragment>

@@ -8,10 +8,9 @@
   &-description {
 
     &-picture {
-      margin-right: auto;
-      margin-left: 5rem;
+      margin: 0 auto;
       display: block;
-      width: 26rem;
+      max-width: 80%;
     }
 
     &-label {
@@ -53,3 +52,41 @@
     }
   }
 }
+
+@media screen and (max-width: 900px) {
+  .item {
+    &-description {
+      &-picture {
+        margin: 0 auto 0 0;
+      }
+      &-label {
+        font-size: 20px;
+      }
+
+      &-content {
+        font-size: 12px;
+      }
+    }
+    &-main {
+      &-title {
+        font-size: 20px;
+      }
+      &-price {
+        font-weight: 600;
+        font-size: 32px;
+        margin-bottom: 32px;
+      }
+      &-button {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .item {
+    display: grid;
+    grid-template-columns: 60% 40%;
+  }
+}
+

@@ -72,10 +72,10 @@ export default class ItemDetailsPage extends Component {
                 </div>
               </div>
             ) : (
-              <LandingMessage type="error" message={this.messages.error} />
+              <LandingMessage message={this.messages.error} />
             )}
             {error && (
-              <LandingMessage type="error" message={this.messages.error} />
+              <LandingMessage message={this.messages.error} />
             )}
           </div>
         ) : (
