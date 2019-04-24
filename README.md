@@ -6,6 +6,11 @@ Juan Cerrutti - jicerrutti@gmail.com
 
 ## Instructions
 
+```
+$ git clone https://github.com/jcerrutti/meli_challenge.git
+$ cd meli_challenge
+```
+
 ### Middleware
 
 ```
