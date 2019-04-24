@@ -26,5 +26,6 @@ $ cd meli-webclient
 $ yarn install
 $ yarn start
 ```
+You can use npm also
 
-- You can use npm also
+- Open a explorer and go to `http://localhost:3000`
